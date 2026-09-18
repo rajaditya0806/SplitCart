@@ -1,0 +1,105 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 210 20% 98%;
+    --foreground: 215 28% 15%;
+    --card: 0 0% 100%;
+    --card-foreground: 215 28% 15%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 215 28% 15%;
+    --primary: 152 56% 40%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 210 20% 96%;
+    --secondary-foreground: 215 28% 15%;
+    --muted: 210 16% 93%;
+    --muted-foreground: 215 14% 45%;
+    --accent: 152 56% 94%;
+    --accent-foreground: 152 56% 25%;
+    --destructive: 0 72% 45%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 210 16% 88%;
+    --input: 210 16% 88%;
+    --ring: 152 56% 40%;
+    --chart-1: 152 56% 40%;
+    --chart-2: 199 76% 42%;
+    --chart-3: 38 92% 50%;
+    --chart-4: 275 70% 55%;
+    --chart-5: 0 72% 50%;
+    --radius: 0.625rem;
+    --success: 152 56% 40%;
+    --warning: 38 92% 45%;
+  }
+  .dark {
+    --background: 222 28% 7%;
+    --foreground: 210 20% 92%;
+    --card: 222 24% 10%;
+    --card-foreground: 210 20% 92%;
+    --popover: 222 24% 10%;
+    --popover-foreground: 210 20% 92%;
+    --primary: 152 56% 45%;
+    --primary-foreground: 222 28% 7%;
+    --secondary: 222 18% 15%;
+    --secondary-foreground: 210 20% 92%;
+    --muted: 222 18% 16%;
+    --muted-foreground: 215 14% 60%;
+    --accent: 152 40% 18%;
+    --accent-foreground: 152 56% 70%;
+    --destructive: 0 62% 42%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 222 16% 20%;
+    --input: 222 16% 22%;
+    --ring: 152 56% 45%;
+    --chart-1: 152 56% 45%;
+    --chart-2: 199 76% 50%;
+    --chart-3: 38 92% 55%;
+    --chart-4: 275 70% 60%;
+    --chart-5: 0 72% 52%;
+    --success: 152 56% 45%;
+    --warning: 38 92% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: 'tnum';
+  }
+}
+
+@layer utilities {
+  .tnum {
+    font-variant-numeric: tabular-nums;
+  }
+  .bg-grid {
+    background-image: linear-gradient(to right, hsl(var(--border) / 0.4) 1px, transparent 1px),
+                      linear-gradient(to bottom, hsl(var(--border) / 0.4) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+  .bg-dots {
+    background-image: radial-gradient(hsl(var(--border) / 0.5) 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+.animate-shimmer {
+  background-size: 200% 100%;
+  animation: shimmer 2s linear infinite;
+}
+
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-in-up {
+  animation: fade-in-up 0.4s ease-out forwards;
+}
